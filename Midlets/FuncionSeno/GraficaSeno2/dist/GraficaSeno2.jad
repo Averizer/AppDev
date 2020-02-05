@@ -1,0 +1,8 @@
+MIDlet-1: Grafica, , Grafica
+MIDlet-Jar-Size: 2835
+MIDlet-Jar-URL: GraficaSeno2.jar
+MIDlet-Name: GraficaSeno2
+MIDlet-Vendor: Vendor
+MIDlet-Version: 1.0
+MicroEdition-Configuration: CLDC-1.1
+MicroEdition-Profile: MIDP-2.0

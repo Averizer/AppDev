@@ -1,0 +1,7 @@
+MIDlet-2: Principal, , Principal
+MIDlet-1: Examen1, , Examen1
+MIDlet-Vendor: Vendor
+MIDlet-Version: 1.0
+MIDlet-Name: Examen1
+MicroEdition-Configuration: CLDC-1.1
+MicroEdition-Profile: MIDP-2.0

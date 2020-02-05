@@ -1,0 +1,24 @@
+MIDlet-1: AltoNivelME, , AltoNivelME
+MIDlet-10: CanvasME, , CanvasME
+MIDlet-11: GraficasPrimitivasME, , GraficasPrimitivasME
+MIDlet-12: ArcosME, ,ArcoME
+MIDlet-13: TextosME, , TextosME
+MIDlet-14: ImagenCanvasME, , ImagenCanvasME
+MIDlet-15: MueveTeclaME, , MueveTeclaME
+MIDlet-16: AnimacionPelotaRebotaME, , AnimacionPelotaRebotaME
+MIDlet-17: CargarMusicaME, , CargarMusicaME
+MIDlet-2: BajoNivelME, , BajoNivelME
+MIDlet-3: FormCommandME, , FormCommandME
+MIDlet-4: StringItemMe, , StringItemMe
+MIDlet-5: ImagenMe, , ImagenMe
+MIDlet-6: DateTextFieldME, , DateTextFieldME
+MIDlet-7: GaugeME, , GaugeME
+MIDlet-8: AlertME, ,AlertME
+MIDlet-9: ListME, , ListME
+MIDlet-Jar-Size: 3717977
+MIDlet-Jar-URL: Ejercicios.jar
+MIDlet-Name: Ejercicios
+MIDlet-Vendor: Vendor
+MIDlet-Version: 1.0
+MicroEdition-Configuration: CLDC-1.0
+MicroEdition-Profile: MIDP-2.0
