@@ -1,3 +1,4 @@
+package paq1;
 
 public class FPMP {
 
