@@ -2,11 +2,13 @@ package com.example.ledblt;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -18,6 +20,8 @@ import java.io.OutputStream;
 import java.util.Set;
 import java.util.UUID;
 
+import javax.net.ssl.HandshakeCompletedEvent;
+
 public class MainActivity extends AppCompatActivity {
     ToggleButton jtb1,jtbConectar;
     OutputStream mOutputStream;
@@ -25,14 +29,17 @@ public class MainActivity extends AppCompatActivity {
     BluetoothAdapter mBlueAdapter;
     BluetoothSocket mSocket;
     BluetoothDevice mDevice;
+    Handler blueIn;
     @Override
     public void onCreate(Bundle b) {
         super.onCreate(b);
         setContentView(R.layout.activity_main);
+        final int handlerState = 0;
         apagado = (ImageView)findViewById(R.id.imgApagado);
         encendido = (ImageView)findViewById(R.id.imgEncendido);
         jtb1 = (ToggleButton)findViewById(R.id.xtb1);
         jtbConectar = (ToggleButton) findViewById(R.id.btnConectar);
+        final StringBuilder recDataString = new StringBuilder();
         encendido.setVisibility(View.INVISIBLE);
 
         jtb1.setOnClickListener(new View.OnClickListener() {
@@ -42,11 +49,13 @@ public class MainActivity extends AppCompatActivity {
                     showToastMessage("Led encendido");
                     encendido.setVisibility(View.VISIBLE);
                     apagado.setVisibility(View.INVISIBLE);
+
                 }
                 else {
                     showToastMessage("Led apagado");
                     encendido.setVisibility(View.INVISIBLE);
                     apagado.setVisibility(View.VISIBLE);
+
                 }
             }
         });
@@ -71,6 +80,38 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        blueIn = new Handler() {
+
+            public void handleMessage(android.os.Message msg) {
+                if (msg.what == handlerState) {          //if message is what we want
+                    String readMessage = (String) msg.obj;                                                                // msg.arg1 = bytes from connect thread
+                    recDataString.append(readMessage);              //keep appending to string until ~
+                    int endOfLineIndex = recDataString.indexOf("~");                    // determine the end-of-line
+                    if (endOfLineIndex > 0) {                                           // make sure there data before ~
+                        String dataInPrint = recDataString.substring(0, endOfLineIndex);    // extract string
+                        int dataLength = dataInPrint.length();       //get length of data received
+                        if (recDataString.charAt(0) == '#')        //if it starts with # we know it is what we are looking for
+                        {
+                            String ev = recDataString.substring(1,1);             //get sensor value from string between indices 1-5
+
+                            if(ev.equals("1")) {
+                                showToastMessage("Led encendido");
+                                encendido.setVisibility(View.VISIBLE);
+                                apagado.setVisibility(View.INVISIBLE);
+                            }else if (ev.equals("0")){
+                                showToastMessage("Led apagado");
+                                encendido.setVisibility(View.INVISIBLE);
+                                apagado.setVisibility(View.VISIBLE);
+                            }
+                            //sensorView3.setText(" Sensor 3 Voltage = " + sensor3 + "V");
+                        }
+                        recDataString.delete(0, recDataString.length());      //clear all string data
+                       
+                    }
+                }
+            }
+        };
     }
 
     //Busca el dispositivo Bluetooth e inicia la conexión
