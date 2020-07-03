@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+    android:id="@+id/myLayout"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    android:stretchColumns="0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView   android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:layout_y="10dp" android:layout_x="110dp"
+        android:text="@string/titulo"/>
+    <TextView   android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:layout_y="50dp" android:layout_x="30dp" android:text="@string/id"/>
+    <EditText   android:layout_height="40dp" android:layout_width="150dp" android:id="@+id/xetI"
+        android:layout_y="50dp" android:layout_x="150dp" android:inputType="number"/>
+    <TextView   android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:layout_y="100dp" android:layout_x="30dp" android:text="@string/nombre"/>
+    <EditText   android:layout_height="40dp" android:layout_width="150dp" android:id="@+id/xetN"
+        android:layout_y="100dp" android:layout_x="150dp" android:inputType="text"/>
+    <TextView   android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:layout_y="150dp" android:layout_x="30dp" android:text="@string/calificacion"/>
+    <EditText   android:layout_height="40dp" android:layout_width="150dp" android:id="@+id/xetC"
+        android:layout_y="150dp" android:layout_x="150dp" android:inputType="number"/>
+    <Button android:layout_height="40dp" android:layout_width="100dp" android:id="@+id/xbnA"
+        android:layout_y="200dp" android:layout_x="30dp" android:text="@string/alta"/>
+    <Button android:layout_height="40dp" android:layout_width="100dp" android:id="@+id/xbnB"
+        android:layout_y="200dp" android:layout_x="150dp" android:text="@string/baja"/>
+    <Button android:layout_height="40dp" android:layout_width="100dp" android:id="@+id/xbnC"
+        android:layout_y="250dp" android:layout_x="30dp" android:text="@string/cambio"/>
+    <Button android:layout_height="40dp" android:layout_width="100dp" android:id="@+id/xbnV"
+        android:layout_y="250dp" android:layout_x="150dp" android:text="@string/ver"/>
+    <Button android:layout_height="40dp" android:layout_width="100dp" android:id="@+id/xbnL"
+        android:layout_y="300dp" android:layout_x="30dp" android:text="@string/lista"/>
+    <Button android:layout_height="40dp" android:layout_width="100dp" android:id="@+id/xbnI"
+        android:layout_y="300dp" android:layout_x="150dp" android:text="@string/info"/>
+</AbsoluteLayout>

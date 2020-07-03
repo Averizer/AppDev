@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:com.example.chat="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="Sign out"
+        com.example.chat:showAsAction="never"
+        android:id="@+id/menu_sign_out"/>
+
+</menu>

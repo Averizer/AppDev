@@ -1,0 +1,51 @@
+SQLite: opensource SQL database, stores data to a text file on a device.
+Android comes in with built in SQLite database implementation.
+SQLite supports all the relational database features. 
+In order to access this database, you don't need to establish any kind of connections for it.
+The main package is android.database.sqlite contains the classes to manage your own databases.
+Create a database calling method openOrCreateDatabase with database name and mode as a parameter.
+It returns an instance of SQLite database which you have to receive in your own object.
+
+Métodos:
+ * openDatabase(String ruta, SQLiteDatabase.CursorFactory cf, int flags, DatabaseErrorHandler deh)
+Opens the existing database with a flag mode. Flags mode can be OPEN_READWRITE OPEN_READONLY.
+ * openDatabase(String ruta, SQLiteDatabase.CursorFactory cf, int flags)
+Opens the existing database but doesn't define any handler for errors of databases.
+ * openOrCreateDatabase(String ruta, SQLiteDatabase.CursorFactory cf)
+Opens but create the database if it not exists. It´s equivalent to openDatabase method.
+ * openOrCreateDatabase(File file, SQLiteDatabase.CursorFactory factory)
+It takes the File object as a path rather than a string. It's equivalent to file.getPath()
+ * execSQL(String sql, Object[] bindArgs)
+Only inserts data, but also used to update or modify already existing data using bind arguments.
+mydatabase.execSQL("CREATE TABLE IF NOT EXISTS TutorialsPoint(User VARCHAR,Pwd VARCHAR);");
+mydatabase.execSQL("INSERT INTO TutorialsPoint VALUES('admin','admin');");
+
+Cursor resultSet = mydatbase.rawQuery("Select * from MiTabla",null);
+resultSet.moveToFirst();
+String username = resultSet.getString(1);
+String password = resultSet.getString(2);
+
+Method & Description, when called Returns:
+getColumnCount()		total number of columns of the table.
+getColumnIndex(String colName)	index number of a column by specifying the name of the column
+getColumnName(int columnIndex)	name of the column by specifying the index of the column
+getColumnNames()		array of all the column names of the table.
+getCount()			total number of rows in the cursor
+getPosition()			current position of the cursor in the table
+isClosed()			true if the cursor is closed and return false otherwise
+
+public class DBHelper extends SQLiteOpenHelper {
+   public DBHelper(){
+      super(context,DATABASE_NAME,null,1);
+   }
+   public void onCreate(SQLiteDatabase db) {}
+   public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {}
+}
+
+Ver Archivo de Base de Datos en:
+1. Clic en icono de Android Device Monitor del menú principal. La apertura es lenta.
+2. Clic en icono de DDMS de la ventana auxiliar del ADM.
+3. Clic en: data->data->com.example.escom.basededatos1
+4. Clic en databases: Seleccionar DBContactos
+5. Icono superior derecho: Pull a file from the device.
+

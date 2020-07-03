@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                             //sensorView3.setText(" Sensor 3 Voltage = " + sensor3 + "V");
                         }
                         recDataString.delete(0, recDataString.length());      //clear all string data
-                       
+
                     }
                 }
             }
